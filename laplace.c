@@ -80,8 +80,8 @@ void output()
 	float min, max;
 	struct point *p;
 
-	min = FLT_MIN;
-	max = FLT_MAX;
+	min = FLT_MAX;
+	max = FLT_MIN;
 	data = emalloc(HEIGHT * WIDTH * sizeof(*data));
 
 	for (i = 0; i < HEIGHT; i++) {
