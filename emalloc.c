@@ -1,5 +1,6 @@
 #include "emalloc.h"
 
+/* error checking malloc */
 void *emalloc(size_t bytes)
 {
 	void *p;

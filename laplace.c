@@ -3,6 +3,7 @@
 struct point *lattice;
 struct point *lattice2;
 
+/* value at a point in new lattice is average of surrounding values */
 void average_neighbors(int location)
 {
 	struct point *p, *top, *bottom, *left, *right;
@@ -23,6 +24,7 @@ void average_neighbors(int location)
 	p->fixed = 0;
 }
 
+/* each iteration creates a new lattice using averaging */
 void iteration()
 {
 	int i, j;
@@ -39,6 +41,7 @@ void iteration()
 	lattice2 = temp;
 }
 
+/* set up the boundary conditions */
 void boundary_setup(int (*boundary)(int, float*))
 {
 	int i, j, location;
@@ -57,6 +60,7 @@ void boundary_setup(int (*boundary)(int, float*))
 	}
 }
 
+/* initialize lattice with 0 everywhere */
 void setup()
 {
 	int i, j, location;
@@ -72,6 +76,7 @@ void setup()
 	}
 }
 
+/* output solution to png image */
 void output()
 {
 	int i, j;
@@ -109,6 +114,7 @@ void output()
 	free(data);
 }
 
+/* the yos */
 int main(int argc, char *argv[])
 {
 	int i;
@@ -127,5 +133,6 @@ int main(int argc, char *argv[])
 
 	free(lattice);
 	free(lattice2);
+
 	return 0;
 }

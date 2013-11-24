@@ -1,5 +1,6 @@
 #include "png_crap.h"
 
+/* read a grayscale png image */
 int *read_png(char *filename, int *width, int *height)
 {
 	int i, j;
@@ -49,6 +50,7 @@ int *read_png(char *filename, int *width, int *height)
 	return data;
 }
 
+/* write a grayscale png image */
 int write_png(char *filename, int width, int height, int *data)
 {
 	int i, j;
