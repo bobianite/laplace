@@ -21,8 +21,8 @@ int b1(int location, float *v)
 	int center;
 	int radius;
 
-	radius = (float)HEIGHT/8;
-	center = (float)3*HEIGHT/4*WIDTH + (float)WIDTH/2;
+	radius = (float)HEIGHT/16;
+	center = (float)1*HEIGHT/2*WIDTH + (float)WIDTH/2;
 
 	if (distance(location, center) == radius) {
 		*v = 5;
