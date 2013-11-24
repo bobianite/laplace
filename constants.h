@@ -1,8 +1,8 @@
 #ifndef _CONSTANTS_H_
 #define _CONSTANTS_H_
 
-#define HEIGHT 500
-#define WIDTH 500
-#define MAX_ITER WIDTH*HEIGHT/10
+#define HEIGHT 300
+#define WIDTH 300
+#define MAX_ITER WIDTH*HEIGHT
 
 #endif /* !_CONSTANTS_H_ */
