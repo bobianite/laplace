@@ -76,6 +76,7 @@ void output()
 {
 	int i, j;
 	int location;
+	float predata;
 	int *data;
 	float min, max;
 	struct point *p;
@@ -99,8 +100,9 @@ void output()
 		for (j = 0; j < WIDTH; j++) {
 			location = i*WIDTH + j;
 			p = lattice + location;
-			data[location] = (float)255 * (p->v - min)
-				/(max - min) + 0.5;
+			predata = (M_E-1)/(max-min)*(p->v-min) + 1;
+			data[location] = (float)255 * log(predata) +
+				0.5;
 		}
 	}
 

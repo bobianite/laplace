@@ -2,6 +2,7 @@
 #define _LAPLACE_H_
 
 #include <float.h>
+#include <math.h>
 #include "emalloc.h"
 #include "boundary.h"
 #include "png_crap.h"
