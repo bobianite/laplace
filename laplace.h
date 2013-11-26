@@ -14,7 +14,6 @@ struct point {
 		    */
 };
 
-void average_neighbors(int location);
 void iteration();
 void boundary_setup(int (*boundary)(int, float*));
 void setup();

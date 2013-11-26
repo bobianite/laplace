@@ -3,27 +3,6 @@
 struct point *lattice;
 struct point *lattice2;
 
-/* value at a point in new lattice is average of surrounding values */
-void average_neighbors(int location)
-{
-	struct point *p, *top, *bottom, *left, *right;
-
-	p = lattice2 + location;
-	if ((lattice + location)->fixed == 1) {
-		p->v = (lattice + location)->v;
-		p->fixed = 1;
-		return;
-	}
-
-	top = lattice + location - WIDTH;
-	bottom = lattice + location + WIDTH;
-	left = lattice + location - 1;
-	right = lattice + location + 1;
-
-	p->v = (top->v + bottom->v + left->v + right->v)/4;
-	p->fixed = 0;
-}
-
 /* each iteration creates a new lattice using averaging */
 void iteration()
 {
