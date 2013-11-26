@@ -7,13 +7,6 @@
 #include "png_crap.h"
 #include "constants.h"
 
-struct point {
-	float v; /* value of function at point */
-	int fixed; /* 1 means fixed, any other value means not fixed,
-		    * edge of lattice is fixed regardless of this value
-		    */
-};
-
 void average_neighbors(int location);
 void iteration();
 void boundary_setup(int (*boundary)(int, float*));
