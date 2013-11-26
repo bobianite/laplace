@@ -7,7 +7,6 @@
 #include "png_crap.h"
 #include "constants.h"
 
-void average_neighbors(int location);
 void iteration();
 void boundary_setup(int (*boundary)(int, float*));
 void setup();

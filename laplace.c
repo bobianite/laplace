@@ -5,20 +5,6 @@ float *lattice2_v;
 int *lattice_fixed;
 int *lattice2_fixed;
 
-/* value at a point in new lattice is average of surrounding values */
-void average_neighbors(int location)
-{
-	float top, bottom, left, right;
-
-	top = lattice_v[location - WIDTH];
-	bottom = lattice_v[location + WIDTH];
-	left = lattice_v[location - 1];
-	right = lattice_v[location + 1];
-
-	lattice2_v[location] = (top + bottom + left + right)/4;
-	lattice2_fixed[location] = 0;
-}
-
 /* each iteration creates a new lattice using averaging */
 void iteration()
 {
@@ -29,7 +15,11 @@ void iteration()
 	for (i = 1; i < HEIGHT-1; i++) {
 		for (j = 1; j < WIDTH-1; j++) {
 			location = i*WIDTH + j;
-			average_neighbors(location);
+			lattice2_v[location] = (lattice_v[location - WIDTH] +
+					lattice_v[location + WIDTH] +
+					lattice_v[location - 1] +
+					lattice_v[location + 1])/4;
+			lattice2_fixed[location] = 0;
 		}
 	}
 
@@ -132,7 +122,7 @@ int main(int argc, char *argv[])
 	lattice2_fixed = emalloc(WIDTH * HEIGHT *
 			sizeof(*lattice2_fixed));
 	setup();
-	
+
 	boundary_setup(&b1);
 	boundary_setup(&b2);
 
