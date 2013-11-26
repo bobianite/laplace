@@ -27,12 +27,27 @@ void average_neighbors(int location)
 /* each iteration creates a new lattice using averaging */
 void iteration()
 {
-	int i, j;
+	int i, j, location;
+	struct point *p, *top, *bottom, *left, *right;
 	struct point *temp;
 
 	for (i = 1; i < HEIGHT-1; i++) {
 		for (j = 1; j < WIDTH-1; j++) {
-			average_neighbors(i*WIDTH + j);
+			location = i*WIDTH + j;
+			p = lattice2 + location;
+			if ((lattice + location)->fixed == 1) {
+				p->v = (lattice + location)->v;
+				p->fixed = 1;
+				continue;
+			}
+
+			top = lattice + location - WIDTH;
+			bottom = lattice + location + WIDTH;
+			left = lattice + location - 1;
+			right = lattice + location + 1;
+
+			p->v = (top->v + bottom->v + left->v + right->v)/4;
+			p->fixed = 0;
 		}
 	}
 
